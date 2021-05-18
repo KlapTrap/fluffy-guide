@@ -1,0 +1,8 @@
+<mat-card class="sprite-list">
+  <nay-sprite
+    class="sprite-list__item"
+    *ngFor="let pokemon of parsedResources"
+    [url]="pokemon.spriteUrl"
+    [name]="pokemon.name"
+  ></nay-sprite>
+</mat-card>

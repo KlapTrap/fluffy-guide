@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ListPageComponent } from './list-page/list-page.component';
-import { UiModule } from '@nay/ui';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
+import { SpriteListModule } from '@nay/ui';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 const routes: Routes = [
   {
@@ -16,8 +17,9 @@ const routes: Routes = [
   imports: [
     CommonModule,
     HttpClientModule,
-    UiModule,
+    SpriteListModule,
     RouterModule.forChild(routes),
+    MatPaginatorModule,
   ],
   declarations: [ListPageComponent],
   exports: [ListPageComponent],

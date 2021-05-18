@@ -1,0 +1,8 @@
+.sprite-list {
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
+  &__item {
+    margin-bottom: 10px;
+  }
+}

@@ -1,4 +1,9 @@
 <span class="sprite">
-  <img class="sprite__image" [src]="url" [alt]="name" />
-  <footer class="sprite__text">{{ name }}</footer>
+  <img
+    class="sprite__image"
+    [src]="url"
+    [alt]="name"
+    onerror="this.onerror=null; this.src='assets/pokeball.png'"
+  />
+  <!-- <footer class="sprite__text">{{ name }}</footer> -->
 </span>

@@ -1,10 +1,40 @@
 .sprite {
   $length: 96px;
   display: inline-block;
-  min-width: $length;
-  min-height: $length;
+  overflow: hidden;
+  &__image {
+    width: $length;
+    height: $length;
+  }
   &__text {
-    text-align: center;
     font-size: 12px;
+    text-transform: capitalize;
+    text-align: center;
+  }
+  &__party,
+  &:hover,
+  &:focus {
+    .sprite__image {
+      animation: animationFrames ease-in-out 800ms;
+      animation-iteration-count: infinite;
+    }
+  }
+}
+
+@keyframes animationFrames {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  15% {
+    transform: translate(0, -30px) rotate(0deg);
+  }
+  30% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  45% {
+    transform: translate(0, -30px) rotate(0deg);
+  }
+  60% {
+    transform: translate(0px, 0px) rotate(0deg);
   }
 }
