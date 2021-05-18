@@ -1,0 +1,8 @@
+<nay-sprite
+  *ngIf="myPokemon$ | async as myPokemon"
+  [url]="myPokemon.sprites.back_default"
+></nay-sprite>
+<nay-sprite
+  *ngIf="wildPokemon$ | async as wildPokemon"
+  [url]="wildPokemon.sprites.front_default"
+></nay-sprite>

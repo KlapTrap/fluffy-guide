@@ -52,7 +52,10 @@
               "apps/pokedex/src/favicon.ico",
               "apps/pokedex/src/assets"
             ],
-            "styles": ["./node_modules/@angular/material/prebuilt-themes/purple-green.css", "apps/pokedex/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "apps/pokedex/src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -239,6 +242,31 @@
             "lintFilePatterns": [
               "libs/list-page/src/**/*.ts",
               "libs/list-page/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
+    "battle-page": {
+      "projectType": "library",
+      "root": "libs/battle-page",
+      "sourceRoot": "libs/battle-page/src",
+      "prefix": "nay",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/battle-page"],
+          "options": {
+            "jestConfig": "libs/battle-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/battle-page/src/**/*.ts",
+              "libs/battle-page/src/**/*.html"
             ]
           }
         }

@@ -37,6 +37,9 @@
     },
     "list-page": {
       "tags": []
+    },
+    "battle-page": {
+      "tags": []
     }
   }
 }

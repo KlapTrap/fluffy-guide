@@ -20,6 +20,6 @@ export class ListPageComponent implements OnInit {
     this.fetchPokemonPage();
   }
   public fetchPokemonPage(pageIndex = 0) {
-    this.pokedexApiService.getPokemon(pageIndex + 1);
+    this.pokedexApiService.getPokemonList(pageIndex + 1);
   }
 }

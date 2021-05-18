@@ -5,5 +5,6 @@ module.exports = {
     '<rootDir>/libs/types',
     '<rootDir>/libs/ui',
     '<rootDir>/libs/list-page',
+    '<rootDir>/libs/battle-page',
   ],
 };
