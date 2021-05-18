@@ -25,6 +25,12 @@
     "pokedex-e2e": {
       "tags": [],
       "implicitDependencies": ["pokedex"]
+    },
+    "data": {
+      "tags": []
+    },
+    "types": {
+      "tags": []
     }
   }
 }

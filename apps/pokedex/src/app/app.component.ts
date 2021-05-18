@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PokedexApiService } from '@nay/data';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'nay-root',
@@ -6,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'pokedex';
+  constructor(public pokedexApiService: PokedexApiService) {}
+  public pokemonSprites$ = this.pokedexApiService
+    .getPokemonList()
+    .pipe(
+      map((parsedPokemons) =>
+        parsedPokemons.map((parsedPokemon) => parsedPokemon.spriteUrl)
+      )
+    );
 }
