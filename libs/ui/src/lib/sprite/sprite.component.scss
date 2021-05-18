@@ -1,0 +1,10 @@
+.sprite {
+  $length: 96px;
+  display: inline-block;
+  min-width: $length;
+  min-height: $length;
+  &__text {
+    text-align: center;
+    font-size: 12px;
+  }
+}

@@ -17,9 +17,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
+    "types": ["jest"],
     "paths": {
       "@nay/data": ["libs/data/src/index.ts"],
-      "@nay/types": ["libs/types/src/index.ts"]
+      "@nay/types": ["libs/types/src/index.ts"],
+      "@nay/ui": ["libs/ui/src/index.ts"],
+      "@nay/list-page": ["libs/list-page/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

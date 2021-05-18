@@ -31,6 +31,12 @@
     },
     "types": {
       "tags": []
+    },
+    "ui": {
+      "tags": []
+    },
+    "list-page": {
+      "tags": []
     }
   }
 }

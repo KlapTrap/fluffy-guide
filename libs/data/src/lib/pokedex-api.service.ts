@@ -7,7 +7,8 @@ import { pluck, map } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class PokedexApiService {
-  static BASE_URL = 'https://pokeapi.co/api/v2';
+  static readonly BASE_URL = 'https://pokeapi.co/api/v2';
+  private pageSize = 20;
   public hello = 'hello';
   constructor(private httpClient: HttpClient) {}
   public getPokemonList() {

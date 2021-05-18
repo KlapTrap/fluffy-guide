@@ -1,16 +1,17 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 
 import { PokedexApiService } from './pokedex-api.service';
 
-describe('PokedexApiService', () => {
-  let service: PokedexApiService;
+let service: PokedexApiService;
 
-  beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(PokedexApiService);
+beforeEach(() => {
+  TestBed.configureTestingModule({
+    imports: [HttpClientModule],
   });
+  service = TestBed.inject(PokedexApiService);
+});
 
-  it('should be created', () => {
-    expect(service).toBeTruthy();
-  });
+test('should be created', () => {
+  expect(service).toBeTruthy();
 });

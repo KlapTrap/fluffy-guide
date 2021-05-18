@@ -195,6 +195,53 @@
           }
         }
       }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libs/ui",
+      "sourceRoot": "libs/ui/src",
+      "prefix": "nay",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/ui"],
+          "options": {
+            "jestConfig": "libs/ui/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/ui/src/**/*.ts", "libs/ui/src/**/*.html"]
+          }
+        }
+      }
+    },
+    "list-page": {
+      "projectType": "library",
+      "root": "libs/list-page",
+      "sourceRoot": "libs/list-page/src",
+      "prefix": "nay",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/list-page"],
+          "options": {
+            "jestConfig": "libs/list-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/list-page/src/**/*.ts",
+              "libs/list-page/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

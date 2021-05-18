@@ -1,0 +1,5 @@
+<nay-sprite
+  *ngFor="let pokemon of pokemonPage$ | async"
+  [url]="pokemon.spriteUrl"
+  [name]="pokemon.name"
+></nay-sprite>
