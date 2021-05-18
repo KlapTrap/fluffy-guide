@@ -1,6 +1,7 @@
 {
   "version": 1,
   "cli": {
+    "analytics": false,
     "defaultCollection": "@nrwl/angular"
   },
   "defaultProject": "pokedex",
@@ -51,7 +52,7 @@
               "apps/pokedex/src/favicon.ico",
               "apps/pokedex/src/assets"
             ],
-            "styles": ["apps/pokedex/src/styles.scss"],
+            "styles": ["./node_modules/@angular/material/prebuilt-themes/purple-green.css", "apps/pokedex/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
