@@ -9,7 +9,7 @@
   >
     Go Back
   </button>
-  <div class="summary__content" *ngIf="pokemon$ | async as pokemon">
+  <div class="summary__main" *ngIf="pokemon$ | async as pokemon">
     <button (click)="addToStore(favPokemonStore, pokemon)">setfav</button>
     <header class="summary__header">
       <nay-sprite
@@ -29,7 +29,7 @@
         </div>
       </section>
     </header>
-    <section>
+    <section class="summary__content">
       <h3>Base Stats</h3>
       <nay-stat-panel [stats]="pokemon.stats"></nay-stat-panel>
     </section>
