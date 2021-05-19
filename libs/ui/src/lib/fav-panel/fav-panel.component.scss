@@ -1,0 +1,12 @@
+.fav-panel {
+  &__toggle {
+    margin: -5px;
+  }
+  &__star {
+    color: rgb(255, 179, 0);
+  }
+
+  &__ball {
+    color: rgb(210, 0, 0);
+  }
+}

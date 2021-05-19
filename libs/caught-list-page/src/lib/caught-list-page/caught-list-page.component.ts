@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { PokemonStore } from '@nay/data';
 
 @Component({
@@ -9,7 +10,14 @@ import { PokemonStore } from '@nay/data';
 })
 export class CaughtListPageComponent {
   constructor(
-    @Inject('caughtPokemon') public caughtPokemonStore: PokemonStore
+    @Inject('caughtPokemon') public caughtPokemonStore: PokemonStore,
+    private router: Router
   ) {}
   public list$ = this.caughtPokemonStore.list();
+
+  public viewSummary(id: string) {
+    this.router.navigate(['pokemon', id], {
+      queryParams: { origin: 'caught' },
+    });
+  }
 }

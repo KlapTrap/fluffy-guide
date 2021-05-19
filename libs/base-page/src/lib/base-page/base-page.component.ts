@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class BasePageComponent {
   public readonly tabs = [
     { path: ['list'], label: 'All Pokemon' },
-    { path: ['caught'], label: 'My Pokedex' },
-    { path: ['favs'], label: 'My Favorites' },
+    { path: ['caught'], label: 'My Pokedex', icon: 'adjust' },
+    { path: ['favs'], label: 'My Favorites', icon: 'star' },
   ];
 }

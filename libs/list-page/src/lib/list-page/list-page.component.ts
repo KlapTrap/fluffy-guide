@@ -23,20 +23,24 @@ export class ListPageComponent implements OnInit {
     this.setCurrentPage(this.getPageNumber());
     this.fetchPokemonPage(this.currentPage - 1);
   }
+
   public getPageNumber() {
     return parseInt(this.activatedRoute.snapshot.queryParams['page']) || 1;
   }
+
   public fetchPokemonPage(pageIndex = 0) {
     // This is a grossy side effect
     const page = pageIndex + 1;
     this.setCurrentPage(page);
     this.pokedexApiService.getPokemonList(page);
   }
+
   public viewSummary(id: string) {
     this.router.navigate(['pokemon', id], {
-      queryParams: { page: this.currentPage },
+      queryParams: { page: this.currentPage, origin: 'list' },
     });
   }
+
   private setCurrentPage(number: number) {
     this.currentPage = number;
     this.router.navigate([], {

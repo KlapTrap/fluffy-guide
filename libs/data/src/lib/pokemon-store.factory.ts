@@ -33,9 +33,9 @@ export class PokemonStore {
     });
   }
 
-  public remove(pokemon: NamedAPIResource) {
+  public remove(name: string) {
     const currentValue = this.getLocalCacheValue();
-    const { [pokemon.name]: omit, ...newCache } = currentValue;
+    const { [name]: omit, ...newCache } = currentValue;
     this.setData(newCache);
   }
 

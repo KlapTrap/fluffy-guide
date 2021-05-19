@@ -1,1 +1,4 @@
-<nay-sprite-list [parsedResources]="list$ | async"></nay-sprite-list>
+<nay-sprite-list
+  (selected)="viewSummary($event.name)"
+  [parsedResources]="list$ | async"
+></nay-sprite-list>

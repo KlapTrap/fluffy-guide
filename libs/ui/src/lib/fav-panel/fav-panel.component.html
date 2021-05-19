@@ -1,1 +1,16 @@
-<p>fav-panel works!</p>
+<div *ngIf="state$ | async as state">
+  <button
+    class="fav-panel__toggle"
+    (click)="toggleFav(state.fav, state.pokemon)"
+    mat-icon-button
+  >
+    <mat-icon class="fav-panel__star">{{ state.favIcon }}</mat-icon>
+  </button>
+  <button
+    class="fav-panel__toggle"
+    (click)="toggleCaught(state.caught, state.pokemon)"
+    mat-icon-button
+  >
+    <mat-icon class="fav-panel__ball"> {{ state.caughtIcon }}</mat-icon>
+  </button>
+</div>

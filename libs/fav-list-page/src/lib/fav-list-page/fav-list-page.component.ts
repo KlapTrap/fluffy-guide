@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { Router } from '@angular/router';
 import { PokemonStore } from '@nay/data';
 
 @Component({
@@ -8,6 +9,14 @@ import { PokemonStore } from '@nay/data';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FavListPageComponent {
-  constructor(@Inject('favPokemon') public favPokemonStore: PokemonStore) {}
+  constructor(
+    @Inject('favPokemon') public favPokemonStore: PokemonStore,
+    private router: Router
+  ) {}
   public fav$ = this.favPokemonStore.list();
+  public viewSummary(id: string) {
+    this.router.navigate(['pokemon', id], {
+      queryParams: { origin: 'favs' },
+    });
+  }
 }

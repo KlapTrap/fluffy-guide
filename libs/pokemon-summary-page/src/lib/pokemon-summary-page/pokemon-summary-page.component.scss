@@ -1,4 +1,7 @@
 .summary {
+  display: block;
+  max-width: 600px;
+  margin: auto;
   &__header {
     display: flex;
     align-items: center;
@@ -22,7 +25,11 @@
     padding: 5px 0;
   }
   &__name {
-    margin: 0;
+    margin: 0 5px 0 0;
+  }
+  &__title {
+    display: flex;
+    align-items: center;
   }
   &__content {
     padding: 20px 30px;
@@ -30,8 +37,6 @@
   &__main {
     background-color: white;
     border-radius: 5px;
-    max-width: 900px;
-    margin: 0 20%;
     padding: 25px;
   }
 }

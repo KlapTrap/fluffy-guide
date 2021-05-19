@@ -1,37 +1,40 @@
-<nay-page-wrapper class="summary">
-  <button
-    class="summary__go-back"
-    mat-flat-button
-    color="primary"
-    type=""
-    *ngIf="returnPage"
-    (click)="goBack()"
-  >
-    Go Back
-  </button>
-  <div class="summary__main" *ngIf="pokemon$ | async as pokemon">
-    <button (click)="addToStore(favPokemonStore, pokemon)">setfav</button>
-    <header class="summary__header">
-      <nay-sprite
-        class="summary__sprite"
-        [url]="pokemon.sprites.front_default"
-        [name]="pokemon.name"
-      >
-      </nay-sprite>
-      <section>
-        <h2 class="summary__name">{{ pokemon.name }}</h2>
-        <div class="summary__types">
-          <nay-type-badge
-            class="summary__type"
-            *ngFor="let type of pokemon.types"
-            [type]="type.type.name"
-          ></nay-type-badge>
-        </div>
+<nay-page-wrapper>
+  <div class="summary">
+    <button
+      class="summary__go-back"
+      mat-flat-button
+      color="primary"
+      *ngIf="origin"
+      (click)="goBack()"
+    >
+      Go Back
+    </button>
+    <div class="summary__main" *ngIf="pokemon$ | async as pokemon">
+      <header class="summary__header">
+        <nay-sprite
+          class="summary__sprite"
+          [url]="pokemon.sprites.front_default"
+          [name]="pokemon.name"
+        >
+        </nay-sprite>
+        <section>
+          <div class="summary__title">
+            <h2 class="summary__name">{{ pokemon.name }}</h2>
+            <nay-fav-panel [pokemon]="pokemon"></nay-fav-panel>
+          </div>
+          <div class="summary__types">
+            <nay-type-badge
+              class="summary__type"
+              *ngFor="let type of pokemon.types"
+              [type]="type.type.name"
+            ></nay-type-badge>
+          </div>
+        </section>
+      </header>
+      <section class="summary__content">
+        <h3>Base Stats</h3>
+        <nay-stat-panel [stats]="pokemon.stats"></nay-stat-panel>
       </section>
-    </header>
-    <section class="summary__content">
-      <h3>Base Stats</h3>
-      <nay-stat-panel [stats]="pokemon.stats"></nay-stat-panel>
-    </section>
+    </div>
   </div>
 </nay-page-wrapper>

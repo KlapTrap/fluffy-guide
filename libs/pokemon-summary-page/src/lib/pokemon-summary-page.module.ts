@@ -9,6 +9,7 @@ import {
   TypeBadgeModule,
   StatPanelModule,
   PageWrapperModule,
+  FavPanelModule,
 } from '@nay/ui';
 
 const routes: Routes = [
@@ -27,6 +28,7 @@ const routes: Routes = [
     StatPanelModule,
     MatButtonModule,
     PageWrapperModule,
+    FavPanelModule,
   ],
   declarations: [PokemonSummaryPageComponent],
 })
