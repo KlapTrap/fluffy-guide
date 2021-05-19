@@ -13,6 +13,11 @@ const routes: Routes = [
         (m) => m.PokemonSummaryPageModule
       ),
   },
+  {
+    path: 'favs',
+    loadChildren: () =>
+      import('@nay/fav-list-page').then((m) => m.FavListPageModule),
+  },
 ];
 
 @NgModule({

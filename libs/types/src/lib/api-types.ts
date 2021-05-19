@@ -21,6 +21,7 @@ export interface PokemonType {
   type: NamedAPIResource;
 }
 export interface Pokemon {
+  id: string;
   name: string;
   stats: PokemonStat[];
   sprites: {

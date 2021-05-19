@@ -10,6 +10,7 @@
     Go Back
   </button>
   <mat-card *ngIf="pokemon$ | async as pokemon">
+    <button (click)="addToStore(favPokemonStore, pokemon)">setfav</button>
     <header class="summary__header">
       <nay-sprite
         class="summary__sprite"

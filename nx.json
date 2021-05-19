@@ -43,6 +43,9 @@
     },
     "pokemon-summary-page": {
       "tags": []
+    },
+    "fav-list-page": {
+      "tags": []
     }
   }
 }

@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { PokemonStore } from '@nay/data';
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -16,7 +16,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     MatToolbarModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'favPokemon',
+      useValue: new PokemonStore('pokeFavs', localStorage),
+    },
+    {
+      provide: 'caughtPokemon',
+      useValue: new PokemonStore('gochaPoke', localStorage),
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

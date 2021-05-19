@@ -1,9 +1,16 @@
-import { NamedAPIResource } from './api-types';
+import { NamedAPIResource, Pokemon } from './api-types';
 
 export class ParsedNamedAPIResource implements NamedAPIResource {
   static readonly BASE_SPRITE_URL =
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/';
+
   static readonly SPRITE_IMAGE_SUFFIX = 'png';
+  static fromPokemon(pokemon: Pokemon) {
+    return new ParsedNamedAPIResource({
+      name: pokemon.name,
+      url: `fakeUrl/${pokemon.id}/`,
+    });
+  }
 
   constructor(resource: NamedAPIResource) {
     this.name = resource.name;
