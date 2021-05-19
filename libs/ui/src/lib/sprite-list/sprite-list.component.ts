@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { ParsedNamedAPIResource } from '@nay/types';
 @Component({
   selector: 'nay-sprite-list',
@@ -8,4 +14,5 @@ import { ParsedNamedAPIResource } from '@nay/types';
 })
 export class SpriteListComponent {
   @Input() parsedResources: ParsedNamedAPIResource[];
+  @Output() selected = new EventEmitter<ParsedNamedAPIResource>();
 }

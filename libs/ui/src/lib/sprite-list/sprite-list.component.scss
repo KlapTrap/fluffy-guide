@@ -2,7 +2,12 @@
   display: flex;
   justify-content: center;
   flex-flow: wrap;
-  &__item {
-    margin-bottom: 10px;
+  &__button {
+    padding: 0;
+    margin: 5px;
+    background: white;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
   }
 }

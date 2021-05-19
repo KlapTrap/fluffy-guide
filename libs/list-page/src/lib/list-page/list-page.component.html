@@ -1,11 +1,8 @@
-<mat-paginator
-  class="pokemon-paginator"
-  (page)="fetchPokemonPage($event.pageIndex)"
-  [pageIndex]="pageIndex$ | async"
-  [length]="pokemonCount$ | async"
-  [pageSize]="pageSize"
-></mat-paginator>
-<nay-sprite-list class="pokemon-list" [parsedResources]="pokemonPage$ | async">
+<nay-sprite-list
+  class="pokemon-list"
+  (selected)="viewSummary($event.id)"
+  [parsedResources]="pokemonPage$ | async"
+>
 </nay-sprite-list>
 <mat-paginator
   class="pokemon-paginator"

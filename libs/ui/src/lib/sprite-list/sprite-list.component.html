@@ -1,8 +1,15 @@
-<mat-card class="sprite-list">
-  <nay-sprite
-    class="sprite-list__item"
-    *ngFor="let pokemon of parsedResources"
-    [url]="pokemon.spriteUrl"
-    [name]="pokemon.name"
-  ></nay-sprite>
+<mat-card>
+  <div class="sprite-list">
+    <button
+      class="sprite-list__button"
+      *ngFor="let pokemon of parsedResources"
+      (click)="selected.emit(pokemon)"
+    >
+      <nay-sprite
+        class="sprite-list__item"
+        [url]="pokemon.spriteUrl"
+        [name]="pokemon.name"
+      ></nay-sprite>
+    </button>
+  </div>
 </mat-card>

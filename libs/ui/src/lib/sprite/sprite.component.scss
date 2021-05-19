@@ -1,11 +1,12 @@
-.sprite {
+:host {
+  display: inline-block;
   $length: 96px;
+  width: $length;
+  height: $length;
+}
+.sprite {
   display: inline-block;
   overflow: hidden;
-  &__image {
-    width: $length;
-    height: $length;
-  }
   &__text {
     font-size: 12px;
     text-transform: capitalize;
