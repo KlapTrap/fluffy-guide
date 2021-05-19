@@ -40,6 +40,9 @@
     },
     "battle-page": {
       "tags": []
+    },
+    "pokemon-summary-page": {
+      "tags": []
     }
   }
 }

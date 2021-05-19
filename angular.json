@@ -271,6 +271,31 @@
           }
         }
       }
+    },
+    "pokemon-summary-page": {
+      "projectType": "library",
+      "root": "libs/pokemon-summary-page",
+      "sourceRoot": "libs/pokemon-summary-page/src",
+      "prefix": "nay",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/pokemon-summary-page"],
+          "options": {
+            "jestConfig": "libs/pokemon-summary-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/pokemon-summary-page/src/**/*.ts",
+              "libs/pokemon-summary-page/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

@@ -23,7 +23,8 @@
       "@nay/types": ["libs/types/src/index.ts"],
       "@nay/ui": ["libs/ui/src/index.ts"],
       "@nay/list-page": ["libs/list-page/src/index.ts"],
-      "@nay/battle-page": ["libs/battle-page/src/index.ts"]
+      "@nay/battle-page": ["libs/battle-page/src/index.ts"],
+      "@nay/pokemon-summary-page": ["libs/pokemon-summary-page/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

@@ -11,6 +11,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('@nay/battle-page').then((m) => m.BattlePageModule),
   },
+  {
+    path: 'pokemon/:id',
+    loadChildren: () =>
+      import('@nay/pokemon-summary-page').then(
+        (m) => m.PokemonSummaryPageModule
+      ),
+  },
 ];
 
 @NgModule({

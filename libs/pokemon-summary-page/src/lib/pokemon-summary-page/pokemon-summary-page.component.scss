@@ -1,0 +1,8 @@
+.type-badge {
+  & + & {
+    margin-left: 5px;
+  }
+}
+.type-badges {
+  padding: 5px 0;
+}

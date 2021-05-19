@@ -15,6 +15,11 @@ export interface PokemonStat {
     name: string;
   };
 }
+
+export interface PokemonType {
+  slot: number;
+  type: NamedAPIResource;
+}
 export interface Pokemon {
   name: string;
   stats: PokemonStat[];
@@ -22,4 +27,5 @@ export interface Pokemon {
     back_default: string;
     front_default: string;
   };
+  types: PokemonType[];
 }
