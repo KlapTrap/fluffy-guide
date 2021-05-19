@@ -4,10 +4,12 @@
   display: inline-block;
   text-transform: capitalize;
 }
+
 .normal {
   background-color: #a8a878;
   border-color: #6d6d4e;
 }
+
 .fire {
   background-color: #f08030;
   border-color: #9c531f;
@@ -84,4 +86,9 @@
 .fairy {
   background-color: #ee99ac;
   border-color: #9b6470;
+}
+
+.ice {
+  background-color: #99eaee;
+  border-color: #85ced2;
 }
