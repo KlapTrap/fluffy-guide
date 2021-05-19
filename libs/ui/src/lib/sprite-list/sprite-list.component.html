@@ -1,4 +1,11 @@
-<mat-card>
+<div class="sprite-list__outer">
+  <div
+    class="sprite-list__empty"
+    *ngIf="parsedResources && parsedResources.length === 0"
+  >
+    <h3>Who's that Pokemon?</h3>
+    <h5>(For real though, we can't find any!)</h5>
+  </div>
   <div class="sprite-list">
     <button
       class="sprite-list__button"
@@ -12,4 +19,4 @@
       ></nay-sprite>
     </button>
   </div>
-</mat-card>
+</div>

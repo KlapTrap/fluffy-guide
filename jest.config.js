@@ -9,5 +9,6 @@ module.exports = {
     '<rootDir>/libs/pokemon-summary-page',
     '<rootDir>/libs/fav-list-page',
     '<rootDir>/libs/caught-list-page',
+    '<rootDir>/libs/base-page',
   ],
 };

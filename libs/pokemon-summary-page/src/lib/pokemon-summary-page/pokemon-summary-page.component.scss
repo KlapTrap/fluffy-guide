@@ -1,5 +1,6 @@
 .summary {
   &__header {
+    margin: -50px;
     display: flex;
     align-items: center;
     margin-bottom: 10px;
@@ -23,5 +24,12 @@
   }
   &__name {
     margin: 0;
+  }
+  &__content {
+    padding: 50px;
+    background-color: white;
+    border-radius: 5px;
+    max-width: 900px;
+    margin: 0 20%;
   }
 }

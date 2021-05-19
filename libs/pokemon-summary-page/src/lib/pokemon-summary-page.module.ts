@@ -4,7 +4,12 @@ import { PokemonSummaryPageComponent } from './pokemon-summary-page/pokemon-summ
 import { RouterModule, Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { SpriteModule, TypeBadgeModule, StatPanelModule } from '@nay/ui';
+import {
+  SpriteModule,
+  TypeBadgeModule,
+  StatPanelModule,
+  PageWrapperModule,
+} from '@nay/ui';
 
 const routes: Routes = [
   {
@@ -21,6 +26,7 @@ const routes: Routes = [
     TypeBadgeModule,
     StatPanelModule,
     MatButtonModule,
+    PageWrapperModule,
   ],
   declarations: [PokemonSummaryPageComponent],
 })

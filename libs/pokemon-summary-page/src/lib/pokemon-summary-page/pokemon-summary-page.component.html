@@ -1,4 +1,4 @@
-<section class="summary">
+<nay-page-wrapper class="summary">
   <button
     class="summary__go-back"
     mat-flat-button
@@ -9,7 +9,7 @@
   >
     Go Back
   </button>
-  <mat-card *ngIf="pokemon$ | async as pokemon">
+  <div class="summary__content" *ngIf="pokemon$ | async as pokemon">
     <button (click)="addToStore(favPokemonStore, pokemon)">setfav</button>
     <header class="summary__header">
       <nay-sprite
@@ -29,9 +29,9 @@
         </div>
       </section>
     </header>
-    <mat-card-content>
+    <section>
       <h3>Base Stats</h3>
       <nay-stat-panel [stats]="pokemon.stats"></nay-stat-panel>
-    </mat-card-content>
-  </mat-card>
-</section>
+    </section>
+  </div>
+</nay-page-wrapper>

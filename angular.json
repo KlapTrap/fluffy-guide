@@ -346,6 +346,31 @@
           }
         }
       }
+    },
+    "base-page": {
+      "projectType": "library",
+      "root": "libs/base-page",
+      "sourceRoot": "libs/base-page/src",
+      "prefix": "nay",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/base-page"],
+          "options": {
+            "jestConfig": "libs/base-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/base-page/src/**/*.ts",
+              "libs/base-page/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }

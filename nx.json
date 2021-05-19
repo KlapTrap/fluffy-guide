@@ -49,6 +49,9 @@
     },
     "caught-list-page": {
       "tags": []
+    },
+    "base-page": {
+      "tags": []
     }
   }
 }
