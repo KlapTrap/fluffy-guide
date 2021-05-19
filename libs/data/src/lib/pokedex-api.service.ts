@@ -19,6 +19,7 @@ export class PokedexApiService {
   }>();
 
   private getPaginationParams(page: number) {
+    console.log(page - 1);
     return {
       limit: PokedexApiService.pageSize,
       offset: PokedexApiService.pageSize * (page - 1),
@@ -32,6 +33,7 @@ export class PokedexApiService {
   }
 
   public getPokemonList(page = 1) {
+    console.log(page);
     this.httpClient
       .get<ApiResponse>(`${PokedexApiService.BASE_URL}/pokemon`, {
         params: this.getPaginationParams(page),

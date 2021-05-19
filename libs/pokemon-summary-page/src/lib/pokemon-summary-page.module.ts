@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PokemonSummaryPageComponent } from './pokemon-summary-page/pokemon-summary-page.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
 import { SpriteModule, TypeBadgeModule, StatPanelModule } from '@nay/ui';
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
     MatCardModule,
     TypeBadgeModule,
     StatPanelModule,
+    MatButtonModule,
   ],
   declarations: [PokemonSummaryPageComponent],
 })

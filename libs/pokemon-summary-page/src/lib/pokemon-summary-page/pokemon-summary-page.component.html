@@ -1,5 +1,15 @@
-<section *ngIf="pokemon$ | async as pokemon">
-  <mat-card>
+<section class="summary">
+  <button
+    class="summary__go-back"
+    mat-flat-button
+    color="primary"
+    type=""
+    *ngIf="returnPage"
+    (click)="goBack()"
+  >
+    Go Back
+  </button>
+  <mat-card *ngIf="pokemon$ | async as pokemon">
     <header class="summary__header">
       <nay-sprite
         class="summary__sprite"

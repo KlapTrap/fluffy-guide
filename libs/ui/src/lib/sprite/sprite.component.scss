@@ -1,6 +1,6 @@
+$length: 96px;
 :host {
   display: inline-block;
-  $length: 96px;
   width: $length;
   height: $length;
 }
@@ -11,6 +11,10 @@
     font-size: 12px;
     text-transform: capitalize;
     text-align: center;
+  }
+  &__image {
+    width: $length;
+    height: $length;
   }
   &__party,
   &:hover,

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PokedexApiService } from '@nay/data';
 import { map, pluck } from 'rxjs/operators';
 
@@ -11,22 +11,38 @@ import { map, pluck } from 'rxjs/operators';
 export class ListPageComponent implements OnInit {
   constructor(
     private pokedexApiService: PokedexApiService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
   public readonly pageSize = PokedexApiService.pageSize;
+  public currentPage: number;
   public pokemonPage$ = this.pokedexApiService.page$.pipe(pluck('results'));
   public pokemonCount$ = this.pokedexApiService.page$.pipe(pluck('count'));
-  public pageIndex$ = this.pokedexApiService.page$.pipe(
-    pluck('number'),
-    map((number) => number - 1)
-  );
+
   public ngOnInit() {
-    this.fetchPokemonPage();
+    this.setCurrentPage(this.getPageNumber());
+    this.fetchPokemonPage(this.currentPage - 1);
+  }
+  public getPageNumber() {
+    return parseInt(this.activatedRoute.snapshot.queryParams['page']) || 1;
   }
   public fetchPokemonPage(pageIndex = 0) {
-    this.pokedexApiService.getPokemonList(pageIndex + 1);
+    // This is a grossy side effect
+    const page = pageIndex + 1;
+    this.setCurrentPage(page);
+    this.pokedexApiService.getPokemonList(page);
   }
   public viewSummary(id: string) {
-    this.router.navigate(['pokemon', id]);
+    this.router.navigate(['pokemon', id], {
+      queryParams: { page: this.currentPage },
+    });
+  }
+  private setCurrentPage(number: number) {
+    this.currentPage = number;
+    this.router.navigate([], {
+      relativeTo: this.activatedRoute,
+      queryParams: { page: this.currentPage },
+      queryParamsHandling: 'merge', // remove to replace all query params by provided
+    });
   }
 }

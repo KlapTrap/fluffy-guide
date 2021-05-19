@@ -7,7 +7,7 @@
 <mat-paginator
   class="pokemon-paginator"
   (page)="fetchPokemonPage($event.pageIndex)"
-  [pageIndex]="pageIndex$ | async"
+  [pageIndex]="currentPage - 1"
   [length]="pokemonCount$ | async"
   [pageSize]="pageSize"
 ></mat-paginator>
