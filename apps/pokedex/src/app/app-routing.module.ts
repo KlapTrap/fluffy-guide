@@ -18,6 +18,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('@nay/fav-list-page').then((m) => m.FavListPageModule),
   },
+  {
+    path: 'caught',
+    loadChildren: () =>
+      import('@nay/caught-list-page').then((m) => m.CaughtListPageModule),
+  },
 ];
 
 @NgModule({

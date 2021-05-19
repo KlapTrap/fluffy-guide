@@ -321,6 +321,31 @@
           }
         }
       }
+    },
+    "caught-list-page": {
+      "projectType": "library",
+      "root": "libs/caught-list-page",
+      "sourceRoot": "libs/caught-list-page/src",
+      "prefix": "nay",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/caught-list-page"],
+          "options": {
+            "jestConfig": "libs/caught-list-page/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/caught-list-page/src/**/*.ts",
+              "libs/caught-list-page/src/**/*.html"
+            ]
+          }
+        }
+      }
     }
   }
 }
