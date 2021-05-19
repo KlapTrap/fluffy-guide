@@ -1,8 +1,24 @@
-.type-badge {
-  & + & {
-    margin-left: 5px;
+.summary {
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    text-transform: capitalize;
   }
-}
-.type-badges {
-  padding: 5px 0;
+  &__sprite {
+    background-color: white;
+    border-radius: 20px;
+    margin-right: 10px;
+  }
+  &__type {
+    & + & {
+      margin-left: 5px;
+    }
+  }
+  &__types {
+    padding: 5px 0;
+  }
+  &__name {
+    margin: 0;
+  }
 }

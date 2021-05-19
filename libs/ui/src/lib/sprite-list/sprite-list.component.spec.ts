@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SpriteListComponent } from './sprite-list.component';
+import { SpriteListModule } from './sprite-list.module';
 
 describe('SpriteListComponent', () => {
   let component: SpriteListComponent;
@@ -8,9 +9,9 @@ describe('SpriteListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpriteListComponent ]
-    })
-    .compileComponents();
+      declarations: [SpriteListComponent],
+      imports: [SpriteListModule],
+    }).compileComponents();
   });
 
   beforeEach(() => {

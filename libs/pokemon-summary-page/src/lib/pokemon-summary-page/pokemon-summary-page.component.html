@@ -1,22 +1,26 @@
 <section *ngIf="pokemon$ | async as pokemon">
   <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{ pokemon.name }}</mat-card-title>
-      <mat-card-subtitle>
-        <div class="type-badges">
+    <header class="summary__header">
+      <nay-sprite
+        class="summary__sprite"
+        [url]="pokemon.sprites.front_default"
+        [name]="pokemon.name"
+      >
+      </nay-sprite>
+      <section>
+        <h2 class="summary__name">{{ pokemon.name }}</h2>
+        <div class="summary__types">
           <nay-type-badge
-            class="type-badge"
+            class="summary__type"
             *ngFor="let type of pokemon.types"
             [type]="type.type.name"
           ></nay-type-badge>
         </div>
-      </mat-card-subtitle>
-      <img
-        mat-card-avatar
-        [src]="pokemon.sprites.front_default"
-        [alt]="pokemon.name"
-      />
-    </mat-card-header>
-    <mat-card-content></mat-card-content>
+      </section>
+    </header>
+    <mat-card-content>
+      <h3>Base Stats</h3>
+      <nay-stat-panel [stats]="pokemon.stats"></nay-stat-panel>
+    </mat-card-content>
   </mat-card>
 </section>

@@ -1,0 +1,6 @@
+<div class="stat-wrapper">
+  <span class="stat" *ngFor="let stat of uiStats" [ngClass]="stat.name">
+    <div>{{ stat.value }}</div>
+    <div>{{ stat.label }}</div>
+  </span>
+</div>
