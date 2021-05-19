@@ -5,6 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { SpriteListModule } from '@nay/ui';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReactiveFormsModule } from '@angular/forms';
 
 const routes: Routes = [
   {
@@ -20,6 +23,9 @@ const routes: Routes = [
     SpriteListModule,
     RouterModule.forChild(routes),
     MatPaginatorModule,
+    MatFormFieldModule,
+    MatInputModule,
+    ReactiveFormsModule,
   ],
   declarations: [ListPageComponent],
   exports: [ListPageComponent],

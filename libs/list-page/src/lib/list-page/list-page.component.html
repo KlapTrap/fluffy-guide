@@ -1,3 +1,8 @@
+<form [formGroup]="form" class="search-form">
+  <mat-form-field appearance="fill" floatLabel="never">
+    <input formControlName="search" matInput placeholder="Search Pokemon" />
+  </mat-form-field>
+</form>
 <nay-sprite-list
   class="pokemon-list"
   (selected)="viewSummary($event.id)"
@@ -6,8 +11,8 @@
 </nay-sprite-list>
 <mat-paginator
   class="pokemon-paginator"
-  (page)="fetchPokemonPage($event.pageIndex)"
-  [pageIndex]="currentPage - 1"
+  (page)="fetchPokemonPage($event.pageIndex + 1)"
+  [pageIndex]="currentPageIndex$ | async"
   [length]="pokemonCount$ | async"
   [pageSize]="pageSize"
 ></mat-paginator>

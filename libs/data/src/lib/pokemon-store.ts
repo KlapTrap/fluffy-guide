@@ -1,14 +1,9 @@
 import { NamedAPIResource, ParsedNamedAPIResource } from '@nay/types';
 import { BehaviorSubject, ReplaySubject } from 'rxjs';
 import { map, pluck } from 'rxjs/operators';
+
 interface LocalCache {
   [name: string]: NamedAPIResource;
-}
-export class PokemonStoreFactory {
-  public getStore(id: string) {
-    return new PokemonStore(id, this.localstorage);
-  }
-  constructor(private localstorage: Storage) {}
 }
 
 export class PokemonStore {
@@ -16,13 +11,7 @@ export class PokemonStore {
   public store$ = new ReplaySubject();
 
   public list() {
-    return this.localCache$$.pipe(
-      map((list) =>
-        Object.values(list).map(
-          (pokemon) => new ParsedNamedAPIResource(pokemon)
-        )
-      )
-    );
+    return this.localCache$$.pipe(map((list) => this.mapStoreToParsed(list)));
   }
 
   public add(pokemon: NamedAPIResource) {
@@ -43,6 +32,12 @@ export class PokemonStore {
     return this.localCache$$.pipe(
       pluck(name),
       map((value) => !!value)
+    );
+  }
+
+  private mapStoreToParsed(store: LocalCache) {
+    return Object.values(store).map(
+      (pokemon) => new ParsedNamedAPIResource(pokemon)
     );
   }
 
@@ -86,7 +81,7 @@ export class PokemonStore {
   }
   constructor(
     private readonly id: string,
-    private readonly localstorage: Storage
+    private readonly localstorage: Pick<Storage, 'setItem' | 'getItem'>
   ) {
     this.localCache$$.next(this.getDataFromStorage());
   }

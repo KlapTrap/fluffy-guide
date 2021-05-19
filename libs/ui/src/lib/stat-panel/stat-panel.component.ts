@@ -9,7 +9,6 @@ interface MappedStat {
   selector: 'nay-stat-panel',
   templateUrl: './stat-panel.component.html',
   styleUrls: ['./stat-panel.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatPanelComponent {
   private readonly nameMapObject = {

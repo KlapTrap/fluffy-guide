@@ -1,8 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { ApiResponse, ParsedNamedAPIResource, Pokemon } from '@nay/types';
-import { map } from 'rxjs/operators';
-import { ReplaySubject } from 'rxjs';
+import {
+  ApiResponse,
+  NamedAPIResource,
+  ParsedNamedAPIResource,
+  Pokemon,
+} from '@nay/types';
+import { map, shareReplay } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -12,16 +17,54 @@ export class PokedexApiService {
   static readonly pageSize = 151;
   constructor(private httpClient: HttpClient) {}
 
-  public page$ = new ReplaySubject<{
-    count: number;
-    number: number;
-    results: ParsedNamedAPIResource[];
-  }>();
+  private currentPage$$ = new BehaviorSubject(1);
+  private search$$ = new BehaviorSubject('');
+  private allPokemon$ = this.httpClient
+    .get<ApiResponse>(`${PokedexApiService.BASE_URL}/pokemon`, {
+      params: { limit: 9999999 },
+    })
+    .pipe(shareReplay(1));
 
-  private getPaginationParams(page: number) {
+  private filteredPokemon$: Observable<ApiResponse> = combineLatest([
+    this.search$$,
+    this.allPokemon$,
+  ]).pipe(map(([search, res]) => this.applySearchToResponse(res, search)));
+
+  public page$ = combineLatest([
+    this.currentPage$$,
+    this.filteredPokemon$,
+  ]).pipe(
+    map(([page, res]) =>
+      this.mapResultsToList(res, page, PokedexApiService.pageSize)
+    )
+  );
+
+  private mapResultsToList(res: ApiResponse, page: number, pageSize: number) {
+    const pageIndex = page - 1;
+    const startIndex = pageIndex * pageSize;
+    const endIndex = startIndex + pageSize;
+    const pageRange = res.results.slice(startIndex, endIndex);
     return {
-      limit: PokedexApiService.pageSize,
-      offset: PokedexApiService.pageSize * (page - 1),
+      results: pageRange.map((named) => new ParsedNamedAPIResource(named)),
+      count: res.count,
+      page,
+    };
+  }
+
+  private getSearchResults(resList: NamedAPIResource[], searchValue: string) {
+    if (!searchValue) {
+      return resList;
+    }
+    return resList.filter((res) =>
+      res.name.toLowerCase().includes(searchValue.toLowerCase())
+    );
+  }
+
+  private applySearchToResponse(res: ApiResponse, search: string) {
+    const results = this.getSearchResults(res.results, search);
+    return {
+      count: results.length,
+      results,
     };
   }
 
@@ -32,19 +75,11 @@ export class PokedexApiService {
   }
 
   public getPokemonList(page = 1) {
-    this.httpClient
-      .get<ApiResponse>(`${PokedexApiService.BASE_URL}/pokemon`, {
-        params: this.getPaginationParams(page),
-      })
-      .pipe(
-        // pluck('results'),
-        map((res) => ({
-          results: res.results.map(
-            (named) => new ParsedNamedAPIResource(named)
-          ),
-          count: res.count,
-        }))
-      )
-      .subscribe((res) => this.page$.next({ ...res, number: page }));
+    this.currentPage$$.next(page);
+  }
+
+  public search(search: string) {
+    this.currentPage$$.next(1);
+    this.search$$.next(search);
   }
 }

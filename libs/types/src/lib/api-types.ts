@@ -5,8 +5,6 @@ export interface NamedAPIResource {
 
 export interface ApiResponse {
   count: number;
-  next: string;
-  previous: string;
   results: NamedAPIResource[];
 }
 export interface PokemonStat {
