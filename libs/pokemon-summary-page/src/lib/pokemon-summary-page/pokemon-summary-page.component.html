@@ -36,5 +36,12 @@
         <nay-stat-panel [stats]="pokemon.stats"></nay-stat-panel>
       </section>
     </div>
+    <div class="summary__error" *ngIf="errored$ | async">
+      <img
+        class="summary__error-gif"
+        src="https://media.giphy.com/media/l2JJKs3I69qfaQleE/source.gif"
+      />
+      <h2>This are not the Pokemon you are looking for</h2>
+    </div>
   </div>
 </nay-page-wrapper>

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { PokedexApiService } from '@nay/data';
 import { ActivatedRoute, Router } from '@angular/router';
-import { filter, pluck, switchMap } from 'rxjs/operators';
+import { catchError, filter, map, pluck, switchMap } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'nay-pokemon-summary-page',
@@ -22,6 +23,11 @@ export class PokemonSummaryPageComponent {
     pluck('id'),
     filter((id) => !!id),
     switchMap((id) => this.pokedexApiService.getPokemon(id))
+  );
+
+  public errored$ = this.pokemon$.pipe(
+    map(() => false),
+    catchError(() => of(true))
   );
 
   public goBack() {
