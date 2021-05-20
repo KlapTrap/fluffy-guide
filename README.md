@@ -1,6 +1,15 @@
 <p style="text-align: center;"><img src="./apps/pokedex/src/assets/logo.png" width="450"></p>
+<p style="text-align: center;"><img src="./apps/pokedex/src/assets/screenshot.png" width="450"></p>
 
 This is a simple Pokedex, pokemon list and tracker.
+
+Sorry I didn't deploy it anywhere, I ran out of time :)
+
+To run:
+
+1. Checkout of the project
+2. Install dependencies `npm install`
+3. Run `nx serve`
 
 ## Improvement "Roadmap"
 
