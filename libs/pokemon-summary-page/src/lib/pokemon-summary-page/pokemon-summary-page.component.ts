@@ -1,8 +1,16 @@
 import { Component } from '@angular/core';
 import { PokedexApiService } from '@nay/data';
 import { ActivatedRoute, Router } from '@angular/router';
-import { catchError, filter, map, pluck, switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import {
+  catchError,
+  debounceTime,
+  filter,
+  map,
+  pluck,
+  startWith,
+  switchMap,
+} from 'rxjs/operators';
+import { combineLatest, of } from 'rxjs';
 
 @Component({
   selector: 'nay-pokemon-summary-page',
@@ -29,6 +37,11 @@ export class PokemonSummaryPageComponent {
     map(() => false),
     catchError(() => of(true))
   );
+
+  public showSpinner$ = combineLatest([
+    this.errored$.pipe(startWith(false)),
+    this.pokemon$.pipe(startWith(false)),
+  ]).pipe(map(([errored, pokemon]) => !errored && !pokemon));
 
   public goBack() {
     const { origin, ...queryParams } = this.activatedRoute.snapshot.queryParams;

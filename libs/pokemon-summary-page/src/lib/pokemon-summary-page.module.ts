@@ -4,6 +4,7 @@ import { PokemonSummaryPageComponent } from './pokemon-summary-page/pokemon-summ
 import { RouterModule, Routes } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {
   SpriteModule,
   TypeBadgeModule,
@@ -29,6 +30,7 @@ const routes: Routes = [
     MatButtonModule,
     PageWrapperModule,
     FavPanelModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [PokemonSummaryPageComponent],
 })

@@ -43,5 +43,8 @@
       />
       <h2>This are not the Pokemon you are looking for</h2>
     </div>
+    <div class="summary__spinner">
+      <mat-spinner *ngIf="showSpinner$ | async"></mat-spinner>
+    </div>
   </div>
 </nay-page-wrapper>

@@ -46,4 +46,8 @@
   &__error-gif {
     max-width: 100%;
   }
+  &__spinner {
+    display: flex;
+    justify-content: center;
+  }
 }
