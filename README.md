@@ -22,3 +22,4 @@ You could say that app is currently in its "Pallet Town" release, here are the t
 5. Use the graphql api - saves me doing client side pagination!
 6. Expose more information about a pokemon on the summary page.
 7. Create a docker image and helm chart to make it deployable.
+8. Setup repo for CI/CD.
